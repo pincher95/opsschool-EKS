@@ -64,7 +64,8 @@ resource "aws_security_group" "worker_group_mgmt_one" {
     cidr_blocks = [
       "209.88.185.5/32",
       "207.232.13.77/32",
-      "192.168.1.0/32"
+      "192.168.1.0/32",
+      "89.138.10.68/32"
     ]
   }
 }
@@ -73,7 +74,7 @@ resource "aws_security_group" "worker_group_mgmt_one" {
 module "eks" {
   source       = "terraform-aws-modules/eks/aws"
   cluster_name = local.cluster_name
-  #TODO Ssbnet id
+  #TODO Subnet id
   subnets      = ["subnet-0572a748", "subnet-18b1b744", "subnet-8b3035ec", "subnet-984a49b6"]
 
   tags = {
